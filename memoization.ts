@@ -9,7 +9,7 @@ const main = () => Promise.resolve("Rendercon lazy mojo").then((value) => {
 try {
   await main();
 } catch (e) {
-  console.log("First await:", e.message);
+  console.log("First await:", e instanceof Error ? e.message : String(e));
 }
 
 online = true;
@@ -19,5 +19,5 @@ try {
   console.log("Second await:", await main()
   );
 } catch (e) {
-  console.log("Second await:", e.message);
+  console.log("Second await:", e instanceof Error ? e.message : String(e));
 }

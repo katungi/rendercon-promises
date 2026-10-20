@@ -1,5 +1,5 @@
 // sleep is a function that waits for a given number of milliseconds
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
 // checkStock is a function that waits for 100 milliseconds and then throws an error
 const checkStock = async () => {
@@ -8,14 +8,15 @@ const checkStock = async () => {
 };
 
 // chargeCard is a function that waits for 1000 milliseconds and then logs a message
-const chargeCard = async (user) => {
+const chargeCard = async (user: string) => {
   await sleep(1000);
   console.log(`💳 Charged ${user}`);
 };
 
 // try to charge the card and check the stock
 try {
+  // Promise.all rejects on the first failure, but it does not stop the other work.
   await Promise.all([checkStock(), chargeCard("Daniel")]);
 } catch (e) {
-  console.log("Order failed:", e.message);
+  console.log("Order failed:", e instanceof Error ? e.message : String(e));
 }

@@ -6,5 +6,5 @@ try {
   await saveUser();
   console.log("User saved ✅");
 } catch (e) {
-  console.log("Something went wrong:", e.message);
+  console.log("Something went wrong:", e instanceof Error ? e.message : String(e));
 }
