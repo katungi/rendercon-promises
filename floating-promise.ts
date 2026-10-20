@@ -3,7 +3,7 @@ async function saveUser() {
 }
 
 try {
-  saveUser();
+  await saveUser();
   console.log("User saved ✅");
 } catch (e) {
   console.log("Something went wrong:", e.message);

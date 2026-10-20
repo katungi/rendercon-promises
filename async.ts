@@ -3,4 +3,4 @@ async function getUser() {
   }
 // what really is async await?
   
-console.log(getUser()); 
+console.log(await getUser()); 

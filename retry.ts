@@ -7,10 +7,10 @@ const fetchData = async () => {
   return "Rendercon lazy mojo!";
 };
 
-async function retry(promise, times) {
+async function retry(fn, times) {
   for (let i = 1; i <= times; i++) {
     try {
-      return await promise;
+      return await fn();
     } catch (e) {
       console.log(`Try ${i} failed`);
     }

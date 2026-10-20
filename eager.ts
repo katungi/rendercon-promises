@@ -6,5 +6,5 @@ const main = Promise.resolve("Rendercon lazy mojo").then((value) => {
 const value = await main;
 console.log(value);
 
-// const again = await main;
-// console.log(again);
+const again = await main;
+console.log(again);
